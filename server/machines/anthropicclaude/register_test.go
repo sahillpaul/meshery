@@ -75,7 +75,7 @@ func TestRegisterAction_Execute(t *testing.T) {
 		secretBody := "secret response body"
 		server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusUnauthorized)
-			w.Write([]byte(secretBody))
+			_, _ = w.Write([]byte(secretBody))
 		}))
 		defer server.Close()
 
